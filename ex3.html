@@ -1,0 +1,82 @@
+<html>  
+<head>  
+<title>Form Validation</title>  
+<style> 
+ label { 
+ display: inline-block; 
+ width: 120px; 
+ } 
+ 
+ legend { 
+ font-size: 20px; 
+ border: 5px solid blue; 
+ } 
+ </style> 
+ <style> 
+ td{color:red;} 
+ </style> 
+<script type = "text/javascript">  
+function validate() {  
+  
+if( document.myForm.Name.value == "" ) {  
+alert( "Please provide your name!" );  
+document.myForm.Name.focus() ;  
+return false;  
+}  
+if( document.myForm.EMail.value == "" ) {  
+alert( "Please provide your Email!" );  
+document.myForm.EMail.focus() ;  
+return false;  
+}  
+if( document.myForm.Zip.value == "" || isNaN( document.myForm.Zip.value ) ||  document.myForm.Zip.value.length != 5 ) {  
+  
+alert( "Please provide a zip in the format #####." );  
+document.myForm.Zip.focus() ;  
+return false;  
+}  
+if( document.myForm.Country.value == "-1" ) {  
+alert( "Please provide your country!" );  
+return false;  
+}  
+return( true ); 
+} 
+</script>  
+</head>  
+  
+<body>  
+ <center> 
+
+ <legend align='center' style='background-color:red'> Personal Information</legend><br> 
+<form name = "myForm" onsubmit = "return(validate());"> <table cellpadding='5' cellspacing='10'  border='5' style='background-color:yellow'>  
+<tr>  
+<td>Name</td>  
+<td><input type = "text" name = "Name" /></td>  
+</tr>  
+  
+<tr> 
+<td >EMail</td>  
+<td><input type = "text" name = "EMail" /></td> </tr>  
+  
+<tr>  
+<td >Zip Code</td>  
+<td><input type = "text" name = "Zip" /></td> </tr>  
+  
+<tr>  
+<td>Country</td>  
+<td>  
+<select name = "Country">  
+<option value = "-1">[choose yours country]</option>  
+<option value = "1">USA</option>  
+<option value = "2">UK</option>  
+<option value = "3">INDIA</option>  
+</select>  
+</td>  
+</tr>  
+  
+<tr>  
+<th colspan="2"><input type = "submit" value = "Submit"></th> 
+</table>  
+</center> 
+</form>  
+</body>  
+</html> 
